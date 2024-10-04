@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Upload</title>
+    <style>
+        /* General Styles */
+        * {
+            box-sizing: border-box;
+        }
+        html, body {
+            height: 100%; /* Full height */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            font-family: 'Open Sans', sans-serif; /* Professional, clean font */
+        }
+        body {
+            background-image: url('/static/images/pexels-shvetsa-4226124.jpg');
+            background-size: cover; /* Cover the entire page */
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: center; /* Center vertically */
+            justify-content: center; /* Center horizontally */
+        }
+        /* Centering and Styling the Content */
+        .overlay {
+            background-color: rgba(0, 0, 0, 0.75); /* Slightly darker overlay */
+            color: white; /* White text */
+            text-align: center; /* Center text */
+            padding: 40px 30px; /* More padding */
+            width: 80%; /* Width of the box */
+            max-width: 500px; /* Max width */
+            border-radius: 12px; /* Softer corners */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Adding shadow for depth */
+        }
+        h1 {
+            font-size: 32px; /* Professional size */
+            margin: 0 0 10px; /* Margin for spacing */
+            font-weight: 600; /* Semi-bold heading */
+        }
+        h2 {
+            font-size: 16px; /* Subtle subheading size */
+            margin: 0 0 20px; /* Margin for spacing */
+            font-weight: 300; /* Lighter subheading */
+            color: #d1d1d1; /* Softer white for subheading */
+        }
+        /* Form Styles */
+        form {
+            margin-top: 20px;
+        }
+        input[type="file"] {
+            display: none; /* Hide the default file input */
+        }
+        .custom-file-label {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #666; /* Light grey for buttons */
+            color: white;
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: 'Open Sans', sans-serif; /* Consistent font */
+            font-weight: 500; /* Medium font weight */
+            cursor: pointer;
+        }
+    </style>
+    <!-- Import Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="overlay">
+        <h1>Visions¿</h1>
+        <h2>Upload Images to Combine and Create a Video</h2>
+        <form id="file-form" method="POST" enctype="multipart/form-data">
+            <label class="custom-file-label" for="file">Choose Files</label>
+            <input type="file" id="file" name="file" multiple>
+        </form>
+    </div>
+
+    <script>
+        const fileInput = document.getElementById('file');
+        const fileForm = document.getElementById('file-form');
+
+        fileInput.addEventListener('change', function() {
+            if (fileInput.files.length > 0) {
+                // Submit the form automatically once files are chosen
+                fileForm.submit();
+            }
+        });
+    </script>
+
+</body>
+</html>

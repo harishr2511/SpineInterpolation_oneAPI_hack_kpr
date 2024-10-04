@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Combined Videos</title>
+    <style>
+        /* Style for the body */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full viewport height */
+            margin: 0;
+            background: url('/static/images/pexels-shvetsa-4226259.jpg') no-repeat center center fixed;
+            background-size: cover;
+            position: relative;
+            color: #fff;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .videos-wrapper {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .video-container {
+            background: rgba(255, 255, 255, 0.85);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: #000;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        video {
+            border-radius: 8px;
+        }
+
+        .button-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #444;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 500;
+        }
+
+        .button-link:hover {
+            background-color: #333;
+        }
+
+        .back-button {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background-color: #444;
+            padding: 10px 20px;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .back-button:hover {
+            background-color: #333;
+        }
+    </style>
+    <!-- Import Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="videos-wrapper">
+        <!-- Uploaded Images Video -->
+        <div class="video-container">
+            <h1>Out_1.mp4</h1>
+            <video width="640" height="360" autoplay loop muted>
+                <source src="{{ url_for('static', filename='videos/' + filename1) }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <br>
+            <a class="button-link" href="{{ url_for('download_video', filename=filename1) }}">Download Video</a>
+
+        </div>
+
+        <!-- Existing Images Video -->
+        <div class="video-container">
+            <h1>Out_2.mp4</h1>
+            <video width="640" height="360" autoplay loop muted>
+                <source src="{{ url_for('static', filename='videos/' + filename2) }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <br>
+            <a class="button-link" href="{{ url_for('download_video', filename=filename2) }}">Download Video</a>
+
+        </div>
+    </div>
+
+    <!-- Back Button -->
+    <a href="/" class="back-button">Back</a>
+</body>
+</html>
