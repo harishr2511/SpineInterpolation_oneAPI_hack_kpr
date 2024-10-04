@@ -1,0 +1,2 @@
+# SpineInterpolation_oneAPI_hack_kpr
+Intel oneAPI Hackathon submission
